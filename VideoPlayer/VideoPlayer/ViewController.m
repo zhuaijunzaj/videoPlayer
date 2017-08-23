@@ -2,8 +2,8 @@
 //  ViewController.m
 //  VideoPlayer
 //
-//  Created by 朱爱俊 on 2017/8/23.
-//  Copyright © 2017年 朱爱俊. All rights reserved.
+//  Created by Kattern on 2017/8/23.
+//  Copyright © 2017年 Kattern. All rights reserved.
 //
 
 #import "ViewController.h"

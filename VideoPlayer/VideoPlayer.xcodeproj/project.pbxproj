@@ -23,6 +23,30 @@
 		56281F4D1F4D5ACF00FCE7C4 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56281F431F4D5ACF00FCE7C4 /* libSDL2.a */; };
 		56281F4E1F4D5AD000FCE7C4 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56281F441F4D5ACF00FCE7C4 /* libswresample.a */; };
 		56281F4F1F4D5AD000FCE7C4 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56281F451F4D5ACF00FCE7C4 /* libswscale.a */; };
+		569FEEC51F4D65E700F8D480 /* FFmpegReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEC31F4D65E700F8D480 /* FFmpegReader.cpp */; };
+		569FEEC81F4D670100F8D480 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEC71F4D670100F8D480 /* GLKit.framework */; };
+		569FEECA1F4D670800F8D480 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEC91F4D670800F8D480 /* GameController.framework */; };
+		569FEECC1F4D670F00F8D480 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEECB1F4D670F00F8D480 /* MediaPlayer.framework */; };
+		569FEECE1F4D671700F8D480 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEECD1F4D671700F8D480 /* UserNotifications.framework */; };
+		569FEED01F4D671C00F8D480 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEECF1F4D671C00F8D480 /* CoreMotion.framework */; };
+		569FEED41F4D673000F8D480 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED11F4D673000F8D480 /* AudioToolbox.framework */; };
+		569FEED51F4D673000F8D480 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED21F4D673000F8D480 /* AudioUnit.framework */; };
+		569FEED61F4D673000F8D480 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED31F4D673000F8D480 /* CoreAudio.framework */; };
+		569FEED81F4D673600F8D480 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED71F4D673600F8D480 /* CFNetwork.framework */; };
+		569FEEDA1F4D673C00F8D480 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED91F4D673C00F8D480 /* MobileCoreServices.framework */; };
+		569FEEDC1F4D674800F8D480 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEDB1F4D674800F8D480 /* libiconv.tbd */; };
+		569FEEDE1F4D674F00F8D480 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEDD1F4D674F00F8D480 /* libbz2.tbd */; };
+		569FEEE01F4D675500F8D480 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEDF1F4D675500F8D480 /* libz.tbd */; };
+		569FEEE21F4D675E00F8D480 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEE11F4D675E00F8D480 /* VideoToolbox.framework */; };
+		569FEEE41F4D676600F8D480 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEE31F4D676600F8D480 /* CoreMedia.framework */; };
+		569FEEE61F4D676C00F8D480 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEE51F4D676C00F8D480 /* CoreGraphics.framework */; };
+		569FEEE81F4D677400F8D480 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEE71F4D677400F8D480 /* OpenGLES.framework */; };
+		569FEEEA1F4D677C00F8D480 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEE91F4D677C00F8D480 /* AVFoundation.framework */; };
+		569FEEED1F4D695800F8D480 /* ZJMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEEB1F4D695800F8D480 /* ZJMutex.cpp */; };
+		569FEEF01F4D69FF00F8D480 /* ZJAutolock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEEE1F4D69FF00F8D480 /* ZJAutolock.cpp */; };
+		569FEEF31F4D6A9400F8D480 /* ZJThreadWorker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEF11F4D6A9400F8D480 /* ZJThreadWorker.cpp */; };
+		569FEEF61F4D6B4900F8D480 /* ZJSignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEF41F4D6B4900F8D480 /* ZJSignal.cpp */; };
+		569FEEF91F4D6C8500F8D480 /* ZJThreadDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEF71F4D6C8500F8D480 /* ZJThreadDriver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -229,6 +253,37 @@
 		56281F431F4D5ACF00FCE7C4 /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSDL2.a; sourceTree = "<group>"; };
 		56281F441F4D5ACF00FCE7C4 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		56281F451F4D5ACF00FCE7C4 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
+		569FEEC21F4D649000F8D480 /* ZJType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJType.h; sourceTree = "<group>"; };
+		569FEEC31F4D65E700F8D480 /* FFmpegReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFmpegReader.cpp; sourceTree = "<group>"; };
+		569FEEC41F4D65E700F8D480 /* FFmpegReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FFmpegReader.hpp; sourceTree = "<group>"; };
+		569FEEC71F4D670100F8D480 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		569FEEC91F4D670800F8D480 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		569FEECB1F4D670F00F8D480 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		569FEECD1F4D671700F8D480 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		569FEECF1F4D671C00F8D480 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		569FEED11F4D673000F8D480 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		569FEED21F4D673000F8D480 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		569FEED31F4D673000F8D480 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		569FEED71F4D673600F8D480 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		569FEED91F4D673C00F8D480 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		569FEEDB1F4D674800F8D480 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		569FEEDD1F4D674F00F8D480 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		569FEEDF1F4D675500F8D480 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		569FEEE11F4D675E00F8D480 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		569FEEE31F4D676600F8D480 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		569FEEE51F4D676C00F8D480 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		569FEEE71F4D677400F8D480 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		569FEEE91F4D677C00F8D480 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		569FEEEB1F4D695800F8D480 /* ZJMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZJMutex.cpp; sourceTree = "<group>"; };
+		569FEEEC1F4D695800F8D480 /* ZJMutex.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ZJMutex.hpp; sourceTree = "<group>"; };
+		569FEEEE1F4D69FF00F8D480 /* ZJAutolock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZJAutolock.cpp; sourceTree = "<group>"; };
+		569FEEEF1F4D69FF00F8D480 /* ZJAutolock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ZJAutolock.hpp; sourceTree = "<group>"; };
+		569FEEF11F4D6A9400F8D480 /* ZJThreadWorker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZJThreadWorker.cpp; sourceTree = "<group>"; };
+		569FEEF21F4D6A9400F8D480 /* ZJThreadWorker.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ZJThreadWorker.hpp; sourceTree = "<group>"; };
+		569FEEF41F4D6B4900F8D480 /* ZJSignal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZJSignal.cpp; sourceTree = "<group>"; };
+		569FEEF51F4D6B4900F8D480 /* ZJSignal.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ZJSignal.hpp; sourceTree = "<group>"; };
+		569FEEF71F4D6C8500F8D480 /* ZJThreadDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZJThreadDriver.cpp; sourceTree = "<group>"; };
+		569FEEF81F4D6C8500F8D480 /* ZJThreadDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ZJThreadDriver.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +291,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				569FEEEA1F4D677C00F8D480 /* AVFoundation.framework in Frameworks */,
+				569FEEE81F4D677400F8D480 /* OpenGLES.framework in Frameworks */,
+				569FEEE61F4D676C00F8D480 /* CoreGraphics.framework in Frameworks */,
+				569FEEE41F4D676600F8D480 /* CoreMedia.framework in Frameworks */,
+				569FEEE21F4D675E00F8D480 /* VideoToolbox.framework in Frameworks */,
+				569FEEE01F4D675500F8D480 /* libz.tbd in Frameworks */,
+				569FEEDE1F4D674F00F8D480 /* libbz2.tbd in Frameworks */,
+				569FEEDC1F4D674800F8D480 /* libiconv.tbd in Frameworks */,
+				569FEEDA1F4D673C00F8D480 /* MobileCoreServices.framework in Frameworks */,
+				569FEED81F4D673600F8D480 /* CFNetwork.framework in Frameworks */,
+				569FEED41F4D673000F8D480 /* AudioToolbox.framework in Frameworks */,
+				569FEED51F4D673000F8D480 /* AudioUnit.framework in Frameworks */,
+				569FEED61F4D673000F8D480 /* CoreAudio.framework in Frameworks */,
+				569FEED01F4D671C00F8D480 /* CoreMotion.framework in Frameworks */,
+				569FEECE1F4D671700F8D480 /* UserNotifications.framework in Frameworks */,
+				569FEECC1F4D670F00F8D480 /* MediaPlayer.framework in Frameworks */,
+				569FEECA1F4D670800F8D480 /* GameController.framework in Frameworks */,
+				569FEEC81F4D670100F8D480 /* GLKit.framework in Frameworks */,
 				56281F4C1F4D5ACF00FCE7C4 /* libavutil.a in Frameworks */,
 				56281F4A1F4D5ACF00FCE7C4 /* libavfilter.a in Frameworks */,
 				56281F4D1F4D5ACF00FCE7C4 /* libSDL2.a in Frameworks */,
@@ -255,6 +328,7 @@
 			children = (
 				56281E621F4D589600FCE7C4 /* VideoPlayer */,
 				56281E611F4D589600FCE7C4 /* Products */,
+				569FEEC61F4D670100F8D480 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -269,6 +343,7 @@
 		56281E621F4D589600FCE7C4 /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				569FEEB71F4D60FF00F8D480 /* ZJPlayer */,
 				56281E7A1F4D5ACF00FCE7C4 /* Vendor */,
 				56281E661F4D589600FCE7C4 /* AppDelegate.h */,
 				56281E671F4D589600FCE7C4 /* AppDelegate.m */,
@@ -571,6 +646,131 @@
 			path = thirdparty;
 			sourceTree = "<group>";
 		};
+		569FEEB71F4D60FF00F8D480 /* ZJPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				569FEEBB1F4D60FF00F8D480 /* ExportAPI */,
+				569FEEBC1F4D60FF00F8D480 /* player */,
+				569FEEC01F4D60FF00F8D480 /* source */,
+				569FEEB81F4D60FF00F8D480 /* decoder */,
+				569FEEBD1F4D60FF00F8D480 /* render */,
+				569FEEC11F4D60FF00F8D480 /* tools */,
+			);
+			path = ZJPlayer;
+			sourceTree = "<group>";
+		};
+		569FEEB81F4D60FF00F8D480 /* decoder */ = {
+			isa = PBXGroup;
+			children = (
+				569FEEB91F4D60FF00F8D480 /* audio */,
+				569FEEBA1F4D60FF00F8D480 /* video */,
+			);
+			path = decoder;
+			sourceTree = "<group>";
+		};
+		569FEEB91F4D60FF00F8D480 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		569FEEBA1F4D60FF00F8D480 /* video */ = {
+			isa = PBXGroup;
+			children = (
+				569FEEC31F4D65E700F8D480 /* FFmpegReader.cpp */,
+				569FEEC41F4D65E700F8D480 /* FFmpegReader.hpp */,
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		569FEEBB1F4D60FF00F8D480 /* ExportAPI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ExportAPI;
+			sourceTree = "<group>";
+		};
+		569FEEBC1F4D60FF00F8D480 /* player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		569FEEBD1F4D60FF00F8D480 /* render */ = {
+			isa = PBXGroup;
+			children = (
+				569FEEBE1F4D60FF00F8D480 /* audio */,
+				569FEEBF1F4D60FF00F8D480 /* video */,
+			);
+			path = render;
+			sourceTree = "<group>";
+		};
+		569FEEBE1F4D60FF00F8D480 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		569FEEBF1F4D60FF00F8D480 /* video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		569FEEC01F4D60FF00F8D480 /* source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		569FEEC11F4D60FF00F8D480 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				569FEEC21F4D649000F8D480 /* ZJType.h */,
+				569FEEEB1F4D695800F8D480 /* ZJMutex.cpp */,
+				569FEEEC1F4D695800F8D480 /* ZJMutex.hpp */,
+				569FEEEE1F4D69FF00F8D480 /* ZJAutolock.cpp */,
+				569FEEEF1F4D69FF00F8D480 /* ZJAutolock.hpp */,
+				569FEEF11F4D6A9400F8D480 /* ZJThreadWorker.cpp */,
+				569FEEF21F4D6A9400F8D480 /* ZJThreadWorker.hpp */,
+				569FEEF71F4D6C8500F8D480 /* ZJThreadDriver.cpp */,
+				569FEEF81F4D6C8500F8D480 /* ZJThreadDriver.hpp */,
+				569FEEF41F4D6B4900F8D480 /* ZJSignal.cpp */,
+				569FEEF51F4D6B4900F8D480 /* ZJSignal.hpp */,
+			);
+			path = tools;
+			sourceTree = "<group>";
+		};
+		569FEEC61F4D670100F8D480 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				569FEEE91F4D677C00F8D480 /* AVFoundation.framework */,
+				569FEEE71F4D677400F8D480 /* OpenGLES.framework */,
+				569FEEE51F4D676C00F8D480 /* CoreGraphics.framework */,
+				569FEEE31F4D676600F8D480 /* CoreMedia.framework */,
+				569FEEE11F4D675E00F8D480 /* VideoToolbox.framework */,
+				569FEEDF1F4D675500F8D480 /* libz.tbd */,
+				569FEEDD1F4D674F00F8D480 /* libbz2.tbd */,
+				569FEEDB1F4D674800F8D480 /* libiconv.tbd */,
+				569FEED91F4D673C00F8D480 /* MobileCoreServices.framework */,
+				569FEED71F4D673600F8D480 /* CFNetwork.framework */,
+				569FEED11F4D673000F8D480 /* AudioToolbox.framework */,
+				569FEED21F4D673000F8D480 /* AudioUnit.framework */,
+				569FEED31F4D673000F8D480 /* CoreAudio.framework */,
+				569FEECF1F4D671C00F8D480 /* CoreMotion.framework */,
+				569FEECD1F4D671700F8D480 /* UserNotifications.framework */,
+				569FEECB1F4D670F00F8D480 /* MediaPlayer.framework */,
+				569FEEC91F4D670800F8D480 /* GameController.framework */,
+				569FEEC71F4D670100F8D480 /* GLKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -646,8 +846,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				56281E6B1F4D589600FCE7C4 /* ViewController.m in Sources */,
+				569FEEED1F4D695800F8D480 /* ZJMutex.cpp in Sources */,
+				569FEEC51F4D65E700F8D480 /* FFmpegReader.cpp in Sources */,
+				569FEEF31F4D6A9400F8D480 /* ZJThreadWorker.cpp in Sources */,
 				56281E681F4D589600FCE7C4 /* AppDelegate.m in Sources */,
+				569FEEF91F4D6C8500F8D480 /* ZJThreadDriver.cpp in Sources */,
 				56281E651F4D589600FCE7C4 /* main.m in Sources */,
+				569FEEF01F4D69FF00F8D480 /* ZJAutolock.cpp in Sources */,
+				569FEEF61F4D6B4900F8D480 /* ZJSignal.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +977,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 566BE97TJW;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VideoPlayer/Vendor/include",
+				);
 				INFOPLIST_FILE = VideoPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -792,7 +1001,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 566BE97TJW;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/VideoPlayer/Vendor/include",
+				);
 				INFOPLIST_FILE = VideoPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -825,6 +1037,7 @@
 				56281E791F4D589600FCE7C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
