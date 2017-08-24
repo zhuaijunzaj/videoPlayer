@@ -35,7 +35,7 @@ typedef struct __MediaContext{
     ZJ_U32 nVideoHeight;
     int    videoRotation;
     ZJ_U32 nSampleRate;
-    ZJ_U32 nSampleSize;
+    ZJ_U32 nFrameSize;
     ZJ_U32 nSampleFormat;
     AVFormatContext* pFormatCtx;
     AVCodecContext* pAudioCodecCtx;
@@ -55,6 +55,10 @@ public:
     static void releasePacket(AVPacket** pkt);
     static void releasePacketBuffer(AVPacket* pkt);
     void closeMedia();
+    MediaContext mediaCtx;
+    
+    int videoIndex;
+    int audioIndex;
     
 };
 #endif /* FFmpegReader_hpp */

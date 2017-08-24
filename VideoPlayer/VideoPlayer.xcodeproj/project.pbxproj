@@ -47,6 +47,7 @@
 		569FEEF31F4D6A9400F8D480 /* ZJThreadWorker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEF11F4D6A9400F8D480 /* ZJThreadWorker.cpp */; };
 		569FEEF61F4D6B4900F8D480 /* ZJSignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEF41F4D6B4900F8D480 /* ZJSignal.cpp */; };
 		569FEEF91F4D6C8500F8D480 /* ZJThreadDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEF71F4D6C8500F8D480 /* ZJThreadDriver.cpp */; };
+		569FEEFC1F4D7EAE00F8D480 /* PacketQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEFA1F4D7EAE00F8D480 /* PacketQueue.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -284,6 +285,8 @@
 		569FEEF51F4D6B4900F8D480 /* ZJSignal.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ZJSignal.hpp; sourceTree = "<group>"; };
 		569FEEF71F4D6C8500F8D480 /* ZJThreadDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZJThreadDriver.cpp; sourceTree = "<group>"; };
 		569FEEF81F4D6C8500F8D480 /* ZJThreadDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ZJThreadDriver.hpp; sourceTree = "<group>"; };
+		569FEEFA1F4D7EAE00F8D480 /* PacketQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PacketQueue.cpp; sourceTree = "<group>"; };
+		569FEEFB1F4D7EAE00F8D480 /* PacketQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PacketQueue.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -742,6 +745,8 @@
 				569FEEF81F4D6C8500F8D480 /* ZJThreadDriver.hpp */,
 				569FEEF41F4D6B4900F8D480 /* ZJSignal.cpp */,
 				569FEEF51F4D6B4900F8D480 /* ZJSignal.hpp */,
+				569FEEFA1F4D7EAE00F8D480 /* PacketQueue.cpp */,
+				569FEEFB1F4D7EAE00F8D480 /* PacketQueue.hpp */,
 			);
 			path = tools;
 			sourceTree = "<group>";
@@ -854,6 +859,7 @@
 				56281E651F4D589600FCE7C4 /* main.m in Sources */,
 				569FEEF01F4D69FF00F8D480 /* ZJAutolock.cpp in Sources */,
 				569FEEF61F4D6B4900F8D480 /* ZJSignal.cpp in Sources */,
+				569FEEFC1F4D7EAE00F8D480 /* PacketQueue.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
