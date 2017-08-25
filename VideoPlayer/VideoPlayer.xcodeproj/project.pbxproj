@@ -23,14 +23,12 @@
 		56281F4D1F4D5ACF00FCE7C4 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56281F431F4D5ACF00FCE7C4 /* libSDL2.a */; };
 		56281F4E1F4D5AD000FCE7C4 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56281F441F4D5ACF00FCE7C4 /* libswresample.a */; };
 		56281F4F1F4D5AD000FCE7C4 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56281F451F4D5ACF00FCE7C4 /* libswscale.a */; };
-		569FEEC51F4D65E700F8D480 /* FFmpegReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEC31F4D65E700F8D480 /* FFmpegReader.cpp */; };
 		569FEEC81F4D670100F8D480 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEC71F4D670100F8D480 /* GLKit.framework */; };
 		569FEECA1F4D670800F8D480 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEEC91F4D670800F8D480 /* GameController.framework */; };
 		569FEECC1F4D670F00F8D480 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEECB1F4D670F00F8D480 /* MediaPlayer.framework */; };
 		569FEECE1F4D671700F8D480 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEECD1F4D671700F8D480 /* UserNotifications.framework */; };
 		569FEED01F4D671C00F8D480 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEECF1F4D671C00F8D480 /* CoreMotion.framework */; };
 		569FEED41F4D673000F8D480 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED11F4D673000F8D480 /* AudioToolbox.framework */; };
-		569FEED51F4D673000F8D480 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED21F4D673000F8D480 /* AudioUnit.framework */; };
 		569FEED61F4D673000F8D480 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED31F4D673000F8D480 /* CoreAudio.framework */; };
 		569FEED81F4D673600F8D480 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED71F4D673600F8D480 /* CFNetwork.framework */; };
 		569FEEDA1F4D673C00F8D480 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 569FEED91F4D673C00F8D480 /* MobileCoreServices.framework */; };
@@ -48,6 +46,15 @@
 		569FEEF61F4D6B4900F8D480 /* ZJSignal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEF41F4D6B4900F8D480 /* ZJSignal.cpp */; };
 		569FEEF91F4D6C8500F8D480 /* ZJThreadDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEF71F4D6C8500F8D480 /* ZJThreadDriver.cpp */; };
 		569FEEFC1F4D7EAE00F8D480 /* PacketQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 569FEEFA1F4D7EAE00F8D480 /* PacketQueue.cpp */; };
+		56BE5BE51F4F02EA00CF3202 /* ExportAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 56BE5BE41F4F02EA00CF3202 /* ExportAPI.mm */; };
+		56BE5BE71F4FB56C00CF3202 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56BE5BE61F4FB56C00CF3202 /* UIKit.framework */; };
+		56BE5BEA1F4FBB8C00CF3202 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56BE5BE81F4FBB8C00CF3202 /* Player.cpp */; };
+		56BE5BED1F4FBCA700CF3202 /* VideoDecoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56BE5BEB1F4FBCA700CF3202 /* VideoDecoder.cpp */; };
+		56BE5BF01F4FC9DD00CF3202 /* MediaControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56BE5BEE1F4FC9DD00CF3202 /* MediaControl.cpp */; };
+		56BE5BF31F4FF90500CF3202 /* MediaSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56BE5BF11F4FF90500CF3202 /* MediaSource.cpp */; };
+		56BE5BF61F50055D00CF3202 /* FFmpegReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56BE5BF41F50055D00CF3202 /* FFmpegReader.cpp */; };
+		56BE5BF91F50057100CF3202 /* FFmpegVideoDecoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56BE5BF71F50057100CF3202 /* FFmpegVideoDecoder.cpp */; };
+		56BE5BFC1F50128100CF3202 /* VideoRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 56BE5BFA1F50128100CF3202 /* VideoRender.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -255,15 +262,12 @@
 		56281F441F4D5ACF00FCE7C4 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswresample.a; sourceTree = "<group>"; };
 		56281F451F4D5ACF00FCE7C4 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libswscale.a; sourceTree = "<group>"; };
 		569FEEC21F4D649000F8D480 /* ZJType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJType.h; sourceTree = "<group>"; };
-		569FEEC31F4D65E700F8D480 /* FFmpegReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFmpegReader.cpp; sourceTree = "<group>"; };
-		569FEEC41F4D65E700F8D480 /* FFmpegReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FFmpegReader.hpp; sourceTree = "<group>"; };
 		569FEEC71F4D670100F8D480 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		569FEEC91F4D670800F8D480 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		569FEECB1F4D670F00F8D480 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		569FEECD1F4D671700F8D480 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		569FEECF1F4D671C00F8D480 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		569FEED11F4D673000F8D480 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		569FEED21F4D673000F8D480 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		569FEED31F4D673000F8D480 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		569FEED71F4D673600F8D480 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		569FEED91F4D673C00F8D480 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -287,6 +291,23 @@
 		569FEEF81F4D6C8500F8D480 /* ZJThreadDriver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ZJThreadDriver.hpp; sourceTree = "<group>"; };
 		569FEEFA1F4D7EAE00F8D480 /* PacketQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PacketQueue.cpp; sourceTree = "<group>"; };
 		569FEEFB1F4D7EAE00F8D480 /* PacketQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PacketQueue.hpp; sourceTree = "<group>"; };
+		56BE5BE31F4F02EA00CF3202 /* ExportAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExportAPI.h; sourceTree = "<group>"; };
+		56BE5BE41F4F02EA00CF3202 /* ExportAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ExportAPI.mm; sourceTree = "<group>"; };
+		56BE5BE61F4FB56C00CF3202 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		56BE5BE81F4FBB8C00CF3202 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		56BE5BE91F4FBB8C00CF3202 /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		56BE5BEB1F4FBCA700CF3202 /* VideoDecoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoDecoder.cpp; sourceTree = "<group>"; };
+		56BE5BEC1F4FBCA700CF3202 /* VideoDecoder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VideoDecoder.hpp; sourceTree = "<group>"; };
+		56BE5BEE1F4FC9DD00CF3202 /* MediaControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaControl.cpp; sourceTree = "<group>"; };
+		56BE5BEF1F4FC9DD00CF3202 /* MediaControl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MediaControl.hpp; sourceTree = "<group>"; };
+		56BE5BF11F4FF90500CF3202 /* MediaSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaSource.cpp; sourceTree = "<group>"; };
+		56BE5BF21F4FF90500CF3202 /* MediaSource.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MediaSource.hpp; sourceTree = "<group>"; };
+		56BE5BF41F50055D00CF3202 /* FFmpegReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFmpegReader.cpp; sourceTree = "<group>"; };
+		56BE5BF51F50055D00CF3202 /* FFmpegReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FFmpegReader.hpp; sourceTree = "<group>"; };
+		56BE5BF71F50057100CF3202 /* FFmpegVideoDecoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFmpegVideoDecoder.cpp; sourceTree = "<group>"; };
+		56BE5BF81F50057100CF3202 /* FFmpegVideoDecoder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FFmpegVideoDecoder.hpp; sourceTree = "<group>"; };
+		56BE5BFA1F50128100CF3202 /* VideoRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoRender.cpp; sourceTree = "<group>"; };
+		56BE5BFB1F50128100CF3202 /* VideoRender.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VideoRender.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +315,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56BE5BE71F4FB56C00CF3202 /* UIKit.framework in Frameworks */,
 				569FEEEA1F4D677C00F8D480 /* AVFoundation.framework in Frameworks */,
 				569FEEE81F4D677400F8D480 /* OpenGLES.framework in Frameworks */,
 				569FEEE61F4D676C00F8D480 /* CoreGraphics.framework in Frameworks */,
@@ -305,7 +327,6 @@
 				569FEEDA1F4D673C00F8D480 /* MobileCoreServices.framework in Frameworks */,
 				569FEED81F4D673600F8D480 /* CFNetwork.framework in Frameworks */,
 				569FEED41F4D673000F8D480 /* AudioToolbox.framework in Frameworks */,
-				569FEED51F4D673000F8D480 /* AudioUnit.framework in Frameworks */,
 				569FEED61F4D673000F8D480 /* CoreAudio.framework in Frameworks */,
 				569FEED01F4D671C00F8D480 /* CoreMotion.framework in Frameworks */,
 				569FEECE1F4D671700F8D480 /* UserNotifications.framework in Frameworks */,
@@ -681,8 +702,10 @@
 		569FEEBA1F4D60FF00F8D480 /* video */ = {
 			isa = PBXGroup;
 			children = (
-				569FEEC31F4D65E700F8D480 /* FFmpegReader.cpp */,
-				569FEEC41F4D65E700F8D480 /* FFmpegReader.hpp */,
+				56BE5BEB1F4FBCA700CF3202 /* VideoDecoder.cpp */,
+				56BE5BEC1F4FBCA700CF3202 /* VideoDecoder.hpp */,
+				56BE5BF71F50057100CF3202 /* FFmpegVideoDecoder.cpp */,
+				56BE5BF81F50057100CF3202 /* FFmpegVideoDecoder.hpp */,
 			);
 			path = video;
 			sourceTree = "<group>";
@@ -690,6 +713,8 @@
 		569FEEBB1F4D60FF00F8D480 /* ExportAPI */ = {
 			isa = PBXGroup;
 			children = (
+				56BE5BE31F4F02EA00CF3202 /* ExportAPI.h */,
+				56BE5BE41F4F02EA00CF3202 /* ExportAPI.mm */,
 			);
 			path = ExportAPI;
 			sourceTree = "<group>";
@@ -697,6 +722,8 @@
 		569FEEBC1F4D60FF00F8D480 /* player */ = {
 			isa = PBXGroup;
 			children = (
+				56BE5BE81F4FBB8C00CF3202 /* Player.cpp */,
+				56BE5BE91F4FBB8C00CF3202 /* Player.hpp */,
 			);
 			path = player;
 			sourceTree = "<group>";
@@ -720,6 +747,8 @@
 		569FEEBF1F4D60FF00F8D480 /* video */ = {
 			isa = PBXGroup;
 			children = (
+				56BE5BFA1F50128100CF3202 /* VideoRender.cpp */,
+				56BE5BFB1F50128100CF3202 /* VideoRender.hpp */,
 			);
 			path = video;
 			sourceTree = "<group>";
@@ -727,6 +756,12 @@
 		569FEEC01F4D60FF00F8D480 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				56BE5BEE1F4FC9DD00CF3202 /* MediaControl.cpp */,
+				56BE5BEF1F4FC9DD00CF3202 /* MediaControl.hpp */,
+				56BE5BF11F4FF90500CF3202 /* MediaSource.cpp */,
+				56BE5BF21F4FF90500CF3202 /* MediaSource.hpp */,
+				56BE5BF41F50055D00CF3202 /* FFmpegReader.cpp */,
+				56BE5BF51F50055D00CF3202 /* FFmpegReader.hpp */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -754,6 +789,7 @@
 		569FEEC61F4D670100F8D480 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56BE5BE61F4FB56C00CF3202 /* UIKit.framework */,
 				569FEEE91F4D677C00F8D480 /* AVFoundation.framework */,
 				569FEEE71F4D677400F8D480 /* OpenGLES.framework */,
 				569FEEE51F4D676C00F8D480 /* CoreGraphics.framework */,
@@ -765,7 +801,6 @@
 				569FEED91F4D673C00F8D480 /* MobileCoreServices.framework */,
 				569FEED71F4D673600F8D480 /* CFNetwork.framework */,
 				569FEED11F4D673000F8D480 /* AudioToolbox.framework */,
-				569FEED21F4D673000F8D480 /* AudioUnit.framework */,
 				569FEED31F4D673000F8D480 /* CoreAudio.framework */,
 				569FEECF1F4D671C00F8D480 /* CoreMotion.framework */,
 				569FEECD1F4D671700F8D480 /* UserNotifications.framework */,
@@ -852,11 +887,18 @@
 			files = (
 				56281E6B1F4D589600FCE7C4 /* ViewController.m in Sources */,
 				569FEEED1F4D695800F8D480 /* ZJMutex.cpp in Sources */,
-				569FEEC51F4D65E700F8D480 /* FFmpegReader.cpp in Sources */,
+				56BE5BED1F4FBCA700CF3202 /* VideoDecoder.cpp in Sources */,
+				56BE5BE51F4F02EA00CF3202 /* ExportAPI.mm in Sources */,
 				569FEEF31F4D6A9400F8D480 /* ZJThreadWorker.cpp in Sources */,
+				56BE5BF01F4FC9DD00CF3202 /* MediaControl.cpp in Sources */,
 				56281E681F4D589600FCE7C4 /* AppDelegate.m in Sources */,
 				569FEEF91F4D6C8500F8D480 /* ZJThreadDriver.cpp in Sources */,
+				56BE5BF31F4FF90500CF3202 /* MediaSource.cpp in Sources */,
+				56BE5BF91F50057100CF3202 /* FFmpegVideoDecoder.cpp in Sources */,
 				56281E651F4D589600FCE7C4 /* main.m in Sources */,
+				56BE5BF61F50055D00CF3202 /* FFmpegReader.cpp in Sources */,
+				56BE5BFC1F50128100CF3202 /* VideoRender.cpp in Sources */,
+				56BE5BEA1F4FBB8C00CF3202 /* Player.cpp in Sources */,
 				569FEEF01F4D69FF00F8D480 /* ZJAutolock.cpp in Sources */,
 				569FEEF61F4D6B4900F8D480 /* ZJSignal.cpp in Sources */,
 				569FEEFC1F4D7EAE00F8D480 /* PacketQueue.cpp in Sources */,

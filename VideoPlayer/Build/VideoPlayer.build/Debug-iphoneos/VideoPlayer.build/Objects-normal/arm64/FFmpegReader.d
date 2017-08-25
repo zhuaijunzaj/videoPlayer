@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/ZJPlayer/decoder/video/FFmpegReader.cpp \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/ZJPlayer/decoder/video/FFmpegReader.hpp \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/ZJPlayer/tools/ZJType.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/display.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/common.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/attributes.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/macros.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/version.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/avconfig.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/mem.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/error.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/avutil.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/rational.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/mathematics.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/intfloat.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/log.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/pixfmt.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavformat/avformat.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavcodec/avcodec.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/samplefmt.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/buffer.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/cpu.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/channel_layout.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/dict.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavutil/frame.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavcodec/version.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavformat/avio.h \
+  /Users/zhuaijun/Desktop/videoPlayer/VideoPlayer/VideoPlayer/Vendor/include/libavformat/version.h
