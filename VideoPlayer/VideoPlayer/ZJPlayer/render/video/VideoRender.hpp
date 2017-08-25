@@ -13,12 +13,14 @@
 #include "SDL.h"
 #include "ZJThreadDriver.hpp"
 #include "FFmpegReader.hpp"
+
 class VideoRender:public ZJThreadWorker{
 public:
     VideoRender();
     ~VideoRender();
     int openDevice(MediaContext *mediaCtx);
-    
+    void closeDevice();
+    void Run();
 private:
     virtual void DoRunning();
 private:
@@ -26,6 +28,9 @@ private:
     SDL_Renderer *renderer;
     SDL_Texture *bmp;
     SDL_Rect rect;
+    AVFrame *frameYUV;
+    AVFrame *frame;
+    ZJThreadDriver *driver;
     
 };
 #endif /* VideoRender_hpp */

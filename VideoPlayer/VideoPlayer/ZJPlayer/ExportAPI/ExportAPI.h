@@ -27,4 +27,5 @@
 @interface ExportAPI : NSObject
 +(instancetype)sharedInstance;
 -(void)openMedia:(NSString*)path;
+-(void)play;
 @end

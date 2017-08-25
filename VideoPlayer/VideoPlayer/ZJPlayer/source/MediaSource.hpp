@@ -32,14 +32,18 @@ public:
     ~MediaSource();
     int openMedia(const char* path);
     void closeMedia();
+    void Run();
     MediaContext* getMediaCtx();
+    int Seek(ZJ_U32 pos);
 private:
     virtual void DoRunning();
-    
+    int DoSeek();
 private:
     FFmpegReader    *reader;
     ZJThreadDriver  *driver;
     ZJMutex         mutex;
     ZJ_U32          duration;
+    bool            running;
+    ZJ_U32          seekPos;
 };
 #endif /* MediaSource_hpp */

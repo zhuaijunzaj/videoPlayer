@@ -47,6 +47,7 @@ public:
     static Player* sharedInstance();
     ~Player();
     int openMedia(const char* path);
+    void play(ZJ_U32 startPos = 0);
     
 private:
     Player();

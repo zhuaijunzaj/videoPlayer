@@ -86,6 +86,65 @@ void FFmpegReader::closeMedia()
     
 }
 
+int FFmpegReader::setPlayerbackPos(ZJ_U32 pos)
+{
+    if (pos > mediaCtx.nDuration) return -1;
+    int ret = 0;
+    int64_t timestamp = (int64_t)pos*1000;
+    avformat_flush(mediaCtx.pFormatCtx);
+    ret = av_seek_frame(mediaCtx.pFormatCtx, -1, timestamp, AVSEEK_FLAG_BACKWARD);
+    if (ret >= 0)
+        return 0;
+    return -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

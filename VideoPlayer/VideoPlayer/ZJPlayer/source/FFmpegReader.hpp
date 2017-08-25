@@ -50,7 +50,7 @@ public:
     ~FFmpegReader();
     ZJ_U32 openMedia(const char *path);
     MediaContext* getMediaCtx();
-    ZJ_U32 setPlayerbackPos(ZJ_U32 pos);
+    int setPlayerbackPos(ZJ_U32 pos);
     ZJ_U32 readPacket(AVPacket* packet);
     static AVPacket* allocPacket();
     static void releasePacket(AVPacket** pkt);

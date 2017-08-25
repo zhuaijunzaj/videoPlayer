@@ -41,7 +41,15 @@ int Player::openMedia(const char *path)
     }
     return 0;
 }
-
+void Player::play(ZJ_U32 startPos)
+{
+    int ret = checkPlayerStatus(PlayerStatus_Playing);
+    if (ret == Player_Err_None){
+        ZJAutolock lock(&mutex);
+        mediaCtl->play(startPos);
+        status = PlayerStatus_Playing;
+    }
+}
 int Player::checkPlayerStatus(PlayerStatus nextStatus)
 {
     int ret = Player_Err_UnKnown;

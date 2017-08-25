@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "VideoDecoder.hpp"
 #include "MediaSource.hpp"
+#include "VideoRender.hpp"
 
 typedef enum
 {
@@ -22,14 +23,19 @@ typedef enum
 } MediaCtrlStatus;
 
 class MediaControl{
+    
 public:
     MediaControl();
     ~MediaControl();
     int openMedia(const char* path);
+    void play(ZJ_U32 startPos);
     MediaContext* getMediaCtx();
 private:
+    bool hasVideo;
+    bool hasAudio;
     MediaCtrlStatus status;
     MediaSource *mediaSource;
     VideoDecoder *videoDecoder;
+    VideoRender *videoRender;
 };
 #endif /* MediaControl_hpp */

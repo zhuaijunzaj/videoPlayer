@@ -37,4 +37,9 @@
 {
     player->openMedia([path UTF8String]);
 }
+
+-(void)play
+{
+    player->play();
+}
 @end
