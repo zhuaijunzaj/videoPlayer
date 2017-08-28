@@ -26,6 +26,10 @@
 #include "FFmpegReader.hpp"
 #include "ZJThreadDriver.hpp"
 #include "ZJAutolock.hpp"
+#include "PacketManager.hpp"
+
+class SourceMediaPort;
+
 class MediaSource:public ZJThreadWorker{
 public:
     MediaSource();
@@ -35,15 +39,27 @@ public:
     void Run();
     MediaContext* getMediaCtx();
     int Seek(ZJ_U32 pos);
+    SourceMediaPort* getVideoSourcePort();
+    SourceMediaPort* getAudioSourcePost();
 private:
     virtual void DoRunning();
     int DoSeek();
+    void DoPlay();
+    ZJ_U32 getVideoPacket(AVPacket** pkt);
+    ZJ_U32 getAudioPacket(AVPacket** pkt);
+    
 private:
     FFmpegReader    *reader;
     ZJThreadDriver  *driver;
+    SourceMediaPort *videosourcePort;
+    SourceMediaPort *audiosourcePort;
+    PacketManager   *pktManager;
     ZJMutex         mutex;
     ZJ_U32          duration;
     bool            running;
+    bool            mEos;
     ZJ_U32          seekPos;
+    
+    friend class SourceMediaPort;
 };
 #endif /* MediaSource_hpp */

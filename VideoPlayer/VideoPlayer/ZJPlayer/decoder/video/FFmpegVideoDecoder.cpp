@@ -70,3 +70,83 @@ AVPixelFormat FFmpegVideoDecoder::getDecoderFormat(AVCodecContext *contex, const
 
     return formats[i-1];
 }
+
+ZJ_U32 FFmpegVideoDecoder::setInputPacket(AVPacket *inputPacket)
+{
+    ZJ_U32 ret = avcodec_send_packet(codecCtx, inputPacket);
+    if (ret == 0){
+        return Video_Dec_Err_None;
+    }
+    if (ret == AVERROR(EAGAIN)){
+        return Video_Dec_Err_KeepPkt;
+    }else{
+        return Video_Dec_Err_SkipPkt;
+    }
+}
+
+ZJ_U32 FFmpegVideoDecoder::getOutputFrame(AVFrame *outPutFrame)
+{
+    ZJ_U32 ret = avcodec_receive_frame(codecCtx, frame);
+    if (ret == 0){
+        ZJ_U64 timeStamp = 0;
+        if (frame->pts != AV_NOPTS_VALUE){
+            timeStamp = frame->pts;
+        }else if (frame->pkt_dts != AV_NOPTS_VALUE){
+            timeStamp = frame->pkt_dts;
+        }
+        outPutFrame = frame;
+        timeStamp = timeStamp*timeBase*TIME_UNIT;
+        outPutFrame->opaque = &timeStamp;
+    }else if (ret == AVERROR(EAGAIN)){
+        ret = Video_Dec_Err_NeedNewPkt;
+    }
+    return ret;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

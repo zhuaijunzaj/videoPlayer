@@ -7,6 +7,7 @@
 //
 
 #include "VideoRender.hpp"
+#include "VideoDecoder.hpp"
 extern "C"{
 #include <libavutil/imgutils.h>
 #include <libavutil/time.h>
@@ -28,10 +29,15 @@ VideoRender::~VideoRender()
     if (frame) av_free(frame);
 }
 
-int VideoRender::openDevice(MediaContext *mediaCtx)
+int VideoRender::openDevice(MediaContext *mediaCtx,VideoDecoder *decoder)
 {
     float width = mediaCtx->nVideoWidth;
     float height = mediaCtx->nVideoHeight;
+    m_decoder = decoder;
+    
+    mediaContext = (MediaContext*)malloc(sizeof(MediaContext));
+    memcpy(mediaContext, mediaCtx, sizeof(MediaContext));
+    
     SDL_SetMainReady();
     if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO|SDL_INIT_TIMER)){
         printf("SDL initialize failed:%s",SDL_GetError());
@@ -62,12 +68,42 @@ void VideoRender::closeDevice()
 
 void VideoRender::Run()
 {
+    driver->Run();
+}
+
+void VideoRender::DoRunning()
+{
+//    ZJ_U32 waitTime = 35;
+//    bool renderWait = false;
+    ZJ_U32 nret = Video_Render_Err_None;
     
+    ZJAutolock lock(&videoMutex);
+    nret = m_decoder->getVideoFrame(frame);
+    if (nret == Video_Render_Err_None){
+        if (frame){
+            drawVideoLayer();
+        }
+    }
 }
 
 
-
-
+void VideoRender::drawVideoLayer()
+{
+    img_convert_ctx = sws_getContext(rect.w,rect.h,
+                                     mediaContext->pVideoCodecCtx->pix_fmt,
+                                     rect.w, rect.h,
+                                     AV_PIX_FMT_YUV420P,
+                                     SWS_BICUBIC, NULL, NULL, NULL);
+    sws_scale(img_convert_ctx, (const uint8_t* const*)frame->data, frame->linesize, 0, rect.h, frameYUV->data, frameYUV->linesize);
+    sws_freeContext(img_convert_ctx);
+    
+    SDL_UpdateYUVTexture(bmp, &rect, frameYUV->data[0], frameYUV->linesize[0], frameYUV->data[1], frameYUV->linesize[1], frameYUV->data[2], frameYUV->linesize[2]);
+    SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, bmp, &rect, &rect);
+    SDL_RenderPresent(renderer);
+    SDL_Delay(20);
+    
+}
 
 
 

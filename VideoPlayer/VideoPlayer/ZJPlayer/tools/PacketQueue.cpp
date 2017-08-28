@@ -17,7 +17,7 @@ PacketQueue<T>::PacketQueue(ZJ_U32 size):nSize(0),nHead(0),nTail(0),nItemsCount(
 template<typename T>
 PacketQueue<T>::~PacketQueue()
 {
-    if (nData) delete [] nData;
+    if (nData) delete[] nData;
 }
 
 template<typename T>

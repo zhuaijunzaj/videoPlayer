@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
 @interface MediaInfo : NSObject
 @property (nonatomic, assign) BOOL seekable;
 @property (nonatomic, assign) BOOL hasAudio;

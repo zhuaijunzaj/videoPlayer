@@ -7,7 +7,7 @@
 //
 
 #include "MediaControl.hpp"
-
+#include "SourceMediaPort.hpp"
 MediaControl::MediaControl():status(MediaCtrlStatus_NoAct),hasAudio(false),hasVideo(false)
 {
     mediaSource = new MediaSource();
@@ -31,10 +31,11 @@ int MediaControl::openMedia(const char *path)
             return -1;
         }
         if (ctx->hasVideo){
-            ret = videoDecoder->openDecoder(ctx);
+            SourceMediaPort *port = mediaSource->getVideoSourcePort();
+            ret = videoDecoder->openDecoder(ctx,port);
             if (ret == 0){
                 // open render
-                ret = videoRender->openDevice(ctx);
+                ret = videoRender->openDevice(ctx,videoDecoder);
                 if (ret != 0){
                     videoDecoder->closeDecoder();
                     videoRender->closeDevice();
@@ -66,8 +67,17 @@ void MediaControl::play(ZJ_U32 startPos)
         
     }
     if (hasVideo && videoRender) videoRender->Run();
+    status =  MediaCtrlStatus_Play;
 }
 
+MediaContext* MediaControl::getMediaCtx()
+{
+    MediaContext *context = NULL;
+    if (mediaSource){
+        context =  mediaSource->getMediaCtx();
+    }
+    return context;
+}
 
 
 

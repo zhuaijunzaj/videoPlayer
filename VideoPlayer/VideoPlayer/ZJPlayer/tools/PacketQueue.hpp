@@ -38,7 +38,7 @@ private:
     ZJ_U32 nHead;
     ZJ_U32 nTail;
     ZJ_U32 nItemsCount;
-    T *    nData;
+    T*    nData;
 };
 
 #endif /* PacketQueue_hpp */

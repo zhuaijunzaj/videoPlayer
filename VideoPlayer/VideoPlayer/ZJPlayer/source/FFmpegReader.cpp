@@ -7,7 +7,7 @@
 //
 
 #include "FFmpegReader.hpp"
-
+#include "MediaSource.hpp"
 FFmpegReader::FFmpegReader():videoIndex(-1),audioIndex(-1)
 {
     av_register_all();
@@ -99,12 +99,61 @@ int FFmpegReader::setPlayerbackPos(ZJ_U32 pos)
 }
 
 
+AVPacket* FFmpegReader::allocPacket()
+{
+    AVPacket *pkt = av_packet_alloc();
+    av_init_packet(pkt);
+    return pkt;
+}
+
+void FFmpegReader::releasePacket(AVPacket **pkt)
+{
+    if (pkt){
+        av_free(*pkt);
+        pkt = NULL;
+    }
+}
+void FFmpegReader::releasePacketBuffer(AVPacket *pkt)
+{
+    if (pkt){
+        av_packet_unref(pkt);
+        pkt = NULL;
+    }
+}
 
 
 
-
-
-
+ZJ_U32 FFmpegReader::readPacket(AVPacket *packet)
+{
+    ZJ_U32 ret = Source_Err_None;
+    if (packet){
+        ZJ_U32 tryTimes = 0;
+        while (tryTimes < MAX_READ_PACKET_RETRY) {
+            int nret = av_read_frame(mediaCtx.pFormatCtx, packet);
+            if (nret >= 0){
+                if (packet->stream_index == audioIndex){
+                    return Source_Err_ReadAudioPkt;
+                }else if (packet->stream_index == videoIndex){
+                    return Source_Err_ReadVideoPkt;
+                }else{
+                    releasePacketBuffer(packet);
+                }
+            }else if (nret == AVERROR_EOF){
+                ret = Source_Err_ReadEOS;
+                break;
+            }else{
+                ret = Source_Err_ReadPacketFaild;
+            }
+            tryTimes++;
+        }
+        if (tryTimes >= MAX_READ_PACKET_RETRY){
+            ret = Source_Err_ReadPacketFaild;
+        }
+    }else{
+        ret = Source_Err_ReadPacketFaild;
+    }
+    return ret;
+}
 
 
 
