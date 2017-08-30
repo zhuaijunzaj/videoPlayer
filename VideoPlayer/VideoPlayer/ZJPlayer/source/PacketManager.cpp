@@ -92,7 +92,7 @@ int PacketManager::PopEmptyDataPacket(AVPacket **pkt)
 {
     if (pkt){
         ZJAutolock lock(&emptyMutex);
-        return PopEmptyDataPacket(pkt);
+        return emptyQueue->Pop(pkt);
     }
     return -1;
 }

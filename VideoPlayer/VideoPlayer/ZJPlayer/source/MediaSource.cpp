@@ -108,7 +108,7 @@ void MediaSource::DoPlay()
     }
     AVPacket *pkt = NULL;
     pktManager->PopEmptyDataPacket(&pkt);
-    if (pkt == NULL){
+    if (pkt != NULL){
         ZJ_U32 ret = reader->readPacket(pkt);
         if (ret == Source_Err_ReadAudioPkt){
             pktManager->PushAudioDataPacket(pkt);

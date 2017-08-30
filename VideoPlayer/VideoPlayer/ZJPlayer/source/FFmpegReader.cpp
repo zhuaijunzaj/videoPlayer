@@ -40,6 +40,7 @@ ZJ_U32 FFmpegReader::openMedia(const char *path)
         AVCodecParameters *pcodeParam = mediaCtx.pFormatCtx->streams[videoIndex]->codecpar;
         AVCodec *codec = avcodec_find_decoder(pcodeParam->codec_id);
         AVCodecContext *codecCtx = avcodec_alloc_context3(codec);
+        avcodec_parameters_to_context(codecCtx, pcodeParam);
         mediaCtx.hasVideo = true;
         mediaCtx.nVideoIndex = videoIndex;
         mediaCtx.pVideoCodecCtx = codecCtx;
@@ -55,6 +56,7 @@ ZJ_U32 FFmpegReader::openMedia(const char *path)
         AVCodecParameters *pcodeParam = mediaCtx.pFormatCtx->streams[audioIndex]->codecpar;
         AVCodec *codec = avcodec_find_decoder(pcodeParam->codec_id);
         AVCodecContext *codecCtx = avcodec_alloc_context3(codec);
+        avcodec_parameters_to_context(codecCtx, pcodeParam);
         mediaCtx.hasAudio = true;
         mediaCtx.nAudioIndex = audioIndex;
         mediaCtx.pAudioCodecCtx = codecCtx;
@@ -101,7 +103,7 @@ int FFmpegReader::setPlayerbackPos(ZJ_U32 pos)
 
 AVPacket* FFmpegReader::allocPacket()
 {
-    AVPacket *pkt = av_packet_alloc();
+    AVPacket *pkt = (AVPacket *)av_malloc(sizeof(AVPacket));
     av_init_packet(pkt);
     return pkt;
 }

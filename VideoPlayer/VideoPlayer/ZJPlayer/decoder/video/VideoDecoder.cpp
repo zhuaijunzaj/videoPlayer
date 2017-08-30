@@ -40,24 +40,24 @@ void VideoDecoder::closeDecoder()
 ZJ_U32 VideoDecoder::getVideoFrame(AVFrame *videoFrame)
 {
     ZJ_U32 nret = 0;
-    if (videoFrame){
-        ZJAutolock lock(&mutex);
-        nret = videoDecoder->getOutputFrame(videoFrame);
-        if (nret != Video_Dec_Err_None){
-            if (currentPkt == NULL){
-                nret = mediaPort->getVideoDataPacket(&currentPkt);
+//    if (videoFrame){
+    ZJAutolock lock(&mutex);
+    nret = videoDecoder->getOutputFrame(videoFrame);
+    if (nret != Video_Dec_Err_None){
+        if (currentPkt == NULL){
+            nret = mediaPort->getVideoDataPacket(&currentPkt);
+        }
+        if (nret == 0 && currentPkt){
+            nret = videoDecoder->setInputPacket(currentPkt);
+            if (nret != Video_Dec_Err_KeepPkt){
+                mediaPort->returnVideoEmptyPacket(currentPkt);
+                currentPkt = NULL;
             }
-            if (nret == 0 && currentPkt){
-                nret = videoDecoder->setInputPacket(currentPkt);
-                if (nret != Video_Dec_Err_KeepPkt){
-                    mediaPort->returnVideoEmptyPacket(currentPkt);
-                    currentPkt = NULL;
-                }
-                nret = videoDecoder->getOutputFrame(videoFrame);
-            }else{
-                usleep(VIDEO_DEC_WAIT_TIME*1000);
-            }
+            nret = videoDecoder->getOutputFrame(videoFrame);
+        }else{
+            usleep(VIDEO_DEC_WAIT_TIME*1000);
         }
     }
+//    }
     return nret;
 }
