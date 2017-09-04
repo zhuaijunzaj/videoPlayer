@@ -70,8 +70,12 @@ int PacketQueue<T>::Push(T data)
 template<typename T>
 int PacketQueue<T>::Pop(T *data)
 {
-    if (nItemsCount == 0 || nData == NULL )
+    if (nItemsCount == 0 || nData == NULL ){
+        printf("count == 0\n");
         return -1;
+        
+    }
+    
     if (data == NULL)
         return -1;
     int pos = (nHead % nSize);

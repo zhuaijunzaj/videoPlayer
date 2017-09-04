@@ -25,7 +25,7 @@ public:
     ~VideoDecoder();
     int openDecoder(MediaContext* ctx,SourceMediaPort *Port);
     void closeDecoder();
-    ZJ_U32 getVideoFrame(AVFrame* videoFrame);
+    ZJ_U32 getVideoFrame(AVFrame** videoFrame);
 private:
     FFmpegVideoDecoder *videoDecoder;
     SourceMediaPort *mediaPort;

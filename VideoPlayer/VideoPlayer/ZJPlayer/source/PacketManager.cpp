@@ -72,18 +72,19 @@ void PacketManager::clear()
 
 bool PacketManager::PacketQueueIsFull() const
 {
-    return (videoQueue->isFull() || audioQueue->isFull());
+    return (videoQueue->isFull() );
 }
 
 bool PacketManager::PacketQueueIsEmpty() const
 {
-    return (videoQueue->isEmpty() && audioQueue->isEmpty());
+    return (videoQueue->isEmpty() );
 }
 
 int PacketManager::PushEmptyDataPacket(AVPacket *pkt)
 {
     if (pkt){
         ZJAutolock lock(&emptyMutex);
+        printf("push empty packet\n");
         return  emptyQueue->Push(pkt);
     }
     return -1;
@@ -118,6 +119,7 @@ int PacketManager::PushVideoDataPacket(AVPacket *pkt)
 {
     if (pkt){
         ZJAutolock lock(&videoMutex);
+        printf("push video packet\n");
         return videoQueue->Push(pkt);
     }
     return -1;

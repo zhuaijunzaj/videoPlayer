@@ -27,7 +27,7 @@ class MediaControl{
 public:
     MediaControl();
     ~MediaControl();
-    int openMedia(const char* path);
+    int openMedia(const char* path,int width,int height);
     void play(ZJ_U32 startPos);
     MediaContext* getMediaCtx();
 private:

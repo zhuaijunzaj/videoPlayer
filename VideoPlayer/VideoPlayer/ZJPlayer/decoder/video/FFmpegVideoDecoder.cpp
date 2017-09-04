@@ -21,7 +21,7 @@ int FFmpegVideoDecoder::openDecoder(MediaContext *mediaCtx)
     if (mediaCtx == NULL) return -1;
     codecCtx = mediaCtx->pVideoCodecCtx;
     codecParam = mediaCtx->pVideoDecParam;
-    codecCtx->get_format = FFmpegVideoDecoder::getDecoderFormat;
+//    codecCtx->get_format = FFmpegVideoDecoder::getDecoderFormat;
     AVStream *stream = mediaCtx->pFormatCtx->streams[mediaCtx->nVideoIndex];
     timeBase = av_q2d(stream->time_base);
     AVCodec *pcodec = avcodec_find_decoder(codecCtx->codec_id);
@@ -84,7 +84,7 @@ ZJ_U32 FFmpegVideoDecoder::setInputPacket(AVPacket *inputPacket)
     }
 }
 
-ZJ_U32 FFmpegVideoDecoder::getOutputFrame(AVFrame *outPutFrame)
+ZJ_U32 FFmpegVideoDecoder::getOutputFrame(AVFrame **outPutFrame)
 {
     ZJ_U32 ret = avcodec_receive_frame(codecCtx, frame);
     if (ret == 0){
@@ -94,9 +94,9 @@ ZJ_U32 FFmpegVideoDecoder::getOutputFrame(AVFrame *outPutFrame)
         }else if (frame->pkt_dts != AV_NOPTS_VALUE){
             timeStamp = frame->pkt_dts;
         }
-        outPutFrame = frame;
+        *outPutFrame = frame;
         timeStamp = timeStamp*timeBase*TIME_UNIT;
-        outPutFrame->opaque = &timeStamp;
+        (*outPutFrame)->opaque = &timeStamp;
     }else if (ret == AVERROR(EAGAIN)){
         ret = Video_Dec_Err_NeedNewPkt;
     }

@@ -33,9 +33,9 @@
     }
     return self;
 }
--(void)openMedia:(NSString *)path
+-(void)openMedia:(NSString*)path width:(NSInteger)width height:(NSInteger)height
 {
-    player->openMedia([path UTF8String]);
+    player->openMedia([path UTF8String],(int)width,(int)height);
 }
 
 -(void)play

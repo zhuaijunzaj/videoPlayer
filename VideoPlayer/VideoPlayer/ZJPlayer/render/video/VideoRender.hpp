@@ -27,7 +27,7 @@ class VideoRender:public ZJThreadWorker{
 public:
     VideoRender();
     ~VideoRender();
-    int openDevice(MediaContext *mediaCtx,VideoDecoder *decoder);
+    int openDevice(MediaContext *mediaCtx,VideoDecoder *decoder,int width,int height);
     void closeDevice();
     void Run();
 private:
@@ -41,7 +41,7 @@ private:
     struct SwsContext *img_convert_ctx;
     MediaContext *mediaContext;
     VideoDecoder *m_decoder;
-    AVFrame frameYUV;
+    AVFrame *frameYUV;
     AVFrame *frame;
     ZJThreadDriver *driver;
     ZJMutex videoMutex;

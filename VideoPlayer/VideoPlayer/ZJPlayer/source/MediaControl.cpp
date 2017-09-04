@@ -21,7 +21,7 @@ MediaControl::~MediaControl()
     if (videoDecoder) delete videoDecoder;
 }
 
-int MediaControl::openMedia(const char *path)
+int MediaControl::openMedia(const char* path,int width,int height)
 {
     int ret = mediaSource->openMedia(path);
     if (ret == 0){
@@ -35,7 +35,7 @@ int MediaControl::openMedia(const char *path)
             ret = videoDecoder->openDecoder(ctx,port);
             if (ret == 0){
                 // open render
-                ret = videoRender->openDevice(ctx,videoDecoder);
+                ret = videoRender->openDevice(ctx,videoDecoder,width,height);
                 if (ret != 0){
                     videoDecoder->closeDecoder();
                     videoRender->closeDevice();

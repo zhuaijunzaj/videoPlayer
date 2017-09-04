@@ -17,7 +17,7 @@ VideoRender::VideoRender()
 {
     driver = new ZJThreadDriver(this);
     frame = av_frame_alloc();
-//    frameYUV = NULL;
+    frameYUV = av_frame_alloc();
 }
 VideoRender::~VideoRender()
 {
@@ -25,14 +25,14 @@ VideoRender::~VideoRender()
         driver->Exit();
         delete driver;
     }
-//    if (frameYUV) av_free(frameYUV);
+    if (frameYUV) av_free(frameYUV);
     if (frame) av_free(frame);
 }
 
-int VideoRender::openDevice(MediaContext *mediaCtx,VideoDecoder *decoder)
+int VideoRender::openDevice(MediaContext *mediaCtx,VideoDecoder *decoder,int width,int height)
 {
-    float width = mediaCtx->nVideoWidth;
-    float height = mediaCtx->nVideoHeight;
+    int srcwidth = mediaCtx->nVideoWidth;
+    int srcheight = mediaCtx->nVideoHeight;
     m_decoder = decoder;
     
     rect.x = 0;
@@ -42,15 +42,16 @@ int VideoRender::openDevice(MediaContext *mediaCtx,VideoDecoder *decoder)
     
     mediaContext = (MediaContext*)malloc(sizeof(MediaContext));
     memcpy(mediaContext, mediaCtx, sizeof(MediaContext));
-    
-    int numBytes = av_image_get_buffer_size(AV_PIX_FMT_YUV420P,width, height,1);
-    uint8_t *buffer = (uint8_t*)av_malloc(numBytes * sizeof(uint8_t));
-    av_image_fill_arrays(frame->data, frame->linesize, buffer, AV_PIX_FMT_YUV420P, width, height, 1);
-    img_convert_ctx = sws_getContext(rect.w,rect.h,
-                                     (AVPixelFormat)mediaContext->pVideoDecParam->format,
+
+    img_convert_ctx = sws_getContext(srcwidth,srcheight,
+                                     mediaContext->pVideoCodecCtx->pix_fmt,
                                      rect.w, rect.h,
                                      AV_PIX_FMT_YUV420P,
                                      SWS_BICUBIC, NULL, NULL, NULL);
+    int numBytes = av_image_get_buffer_size(AV_PIX_FMT_YUV420P,srcwidth, srcheight,1);
+    uint8_t *buffer = (uint8_t*)av_malloc(numBytes * sizeof(uint8_t));
+    av_image_fill_arrays(frame->data, frame->linesize, buffer, AV_PIX_FMT_YUV420P, srcwidth, srcheight, 1);
+    
     
     SDL_SetMainReady();
     if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_AUDIO|SDL_INIT_TIMER)){
@@ -62,6 +63,7 @@ int VideoRender::openDevice(MediaContext *mediaCtx,VideoDecoder *decoder)
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     bmp = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_IYUV, SDL_TEXTUREACCESS_STREAMING,
                             width, height);
+//    SDL_ShowWindow(window);
     return 0;
 }
 
@@ -86,17 +88,16 @@ void VideoRender::DoRunning()
     ZJAutolock lock(&videoMutex);
     nret = m_decoder->getVideoFrame(&frameYUV);
     if (nret == Video_Render_Err_None){
-//        if (&frameYUV){
-//            drawVideoLayer();
-//        }
-        drawVideoLayer();
+        if (frameYUV){
+            drawVideoLayer();
+        }
     }
 }
 
 
 void VideoRender::drawVideoLayer()
 {
-    sws_scale(img_convert_ctx, (const uint8_t* const*)frameYUV.data, frameYUV.linesize, 0, rect.h, frame->data, frame->linesize);
+    sws_scale(img_convert_ctx, frameYUV->data, frameYUV->linesize, 0, mediaContext->nVideoHeight, frame->data, frame->linesize);
 //    sws_freeContext(img_convert_ctx);
     
     SDL_UpdateYUVTexture(bmp, &rect, frame->data[0], frame->linesize[0], frame->data[1], frame->linesize[1], frame->data[2], frame->linesize[2]);

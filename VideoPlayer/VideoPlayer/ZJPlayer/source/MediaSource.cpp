@@ -106,9 +106,11 @@ void MediaSource::DoPlay()
         usleep(SRC_WAIT_TIME*1000);
         return;
     }
-    AVPacket *pkt = NULL;
-    pktManager->PopEmptyDataPacket(&pkt);
+    AVPacket *pkt = av_packet_alloc();
+    av_init_packet(pkt);
+//    pktManager->PopEmptyDataPacket(&pkt);
     if (pkt != NULL){
+        printf("packet is not null!\n");
         ZJ_U32 ret = reader->readPacket(pkt);
         if (ret == Source_Err_ReadAudioPkt){
             pktManager->PushAudioDataPacket(pkt);
@@ -121,6 +123,7 @@ void MediaSource::DoPlay()
             pktManager->PushEmptyDataPacket(pkt);
         }
     }else{
+        printf("packet is null!\n");
         usleep(SRC_WAIT_TIME*1000);
     }
 }
