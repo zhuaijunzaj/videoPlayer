@@ -27,12 +27,12 @@ Player::~Player()
     if (mediaCtl) delete mediaCtl;
     minstance = NULL;
 }
-int Player::openMedia(const char* path,int width,int height)
+int Player::openMedia(void* window, const char* path,int width,int height)
 {
     int ret = checkPlayerStatus(PlayerStatus_Opened);
     if (ret == Player_Err_None){
         ZJAutolock lock(&mutex);
-        ret = mediaCtl->openMedia(path,width,height);
+        ret = mediaCtl->openMedia(window,path,width,height);
         if (ret == 0){
             MediaContext *ctx = mediaCtl->getMediaCtx();
             status = PlayerStatus_Opened;

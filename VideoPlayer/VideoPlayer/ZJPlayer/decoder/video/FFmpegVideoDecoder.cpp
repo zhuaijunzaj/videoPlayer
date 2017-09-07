@@ -88,6 +88,7 @@ ZJ_U32 FFmpegVideoDecoder::getOutputFrame(AVFrame **outPutFrame)
 {
     ZJ_U32 ret = avcodec_receive_frame(codecCtx, frame);
     if (ret == 0){
+        
         ZJ_U64 timeStamp = 0;
         if (frame->pts != AV_NOPTS_VALUE){
             timeStamp = frame->pts;

@@ -108,7 +108,7 @@ void MediaSource::DoPlay()
     }
     AVPacket *pkt = av_packet_alloc();
     av_init_packet(pkt);
-//    pktManager->PopEmptyDataPacket(&pkt);
+    pktManager->PopEmptyDataPacket(&pkt);
     if (pkt != NULL){
         printf("packet is not null!\n");
         ZJ_U32 ret = reader->readPacket(pkt);

@@ -9,6 +9,8 @@
 #import "ExportAPI.h"
 #import "Player.hpp"
 
+
+
 @interface ExportAPI ()
 {
     Player *player;
@@ -33,9 +35,9 @@
     }
     return self;
 }
--(void)openMedia:(NSString*)path width:(NSInteger)width height:(NSInteger)height
+-(void)openMedia:(NSString*)path width:(NSInteger)width height:(NSInteger)height window:(void*)window
 {
-    player->openMedia([path UTF8String],(int)width,(int)height);
+    player->openMedia(window,[path UTF8String],(int)width,(int)height);
 }
 
 -(void)play

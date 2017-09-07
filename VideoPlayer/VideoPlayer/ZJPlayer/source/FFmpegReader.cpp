@@ -40,13 +40,22 @@ ZJ_U32 FFmpegReader::openMedia(const char *path)
         AVCodecParameters *pcodeParam = mediaCtx.pFormatCtx->streams[videoIndex]->codecpar;
         AVCodec *codec = avcodec_find_decoder(pcodeParam->codec_id);
         AVCodecContext *codecCtx = avcodec_alloc_context3(codec);
+        AVStream *pStream = mediaCtx.pFormatCtx->streams[videoIndex];
         avcodec_parameters_to_context(codecCtx, pcodeParam);
         mediaCtx.hasVideo = true;
+        mediaCtx.videoRotation = 0;
         mediaCtx.nVideoIndex = videoIndex;
         mediaCtx.pVideoCodecCtx = codecCtx;
         mediaCtx.pVideoDecParam = pcodeParam;
         mediaCtx.nVideoWidth = pcodeParam->width;
         mediaCtx.nVideoHeight = pcodeParam->height;
+        
+        for (ZJ_U32 i = 0;i<pStream->nb_side_data;i++){
+            AVPacketSideData sd = pStream->side_data[i];
+            if (sd.type == AV_PKT_DATA_DISPLAYMATRIX){
+                mediaCtx.videoRotation = av_display_rotation_get((int32_t*)sd.data);
+            }
+        }
     }else{
         printf("find video error");
     }

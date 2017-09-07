@@ -17,6 +17,7 @@
 extern "C"{
     #import <libavutil/imgutils.h>
 }
+#include "iOS_VideoWindow.h"
 
 #define Video_Render_Err_None            0x00000000
 #define Video_Render_Err_DeviceErr       0x0F000001
@@ -27,7 +28,7 @@ class VideoRender:public ZJThreadWorker{
 public:
     VideoRender();
     ~VideoRender();
-    int openDevice(MediaContext *mediaCtx,VideoDecoder *decoder,int width,int height);
+    int openDevice(void* window, MediaContext *mediaCtx,VideoDecoder *decoder,int width,int height);
     void closeDevice();
     void Run();
 private:
@@ -45,5 +46,7 @@ private:
     AVFrame *frame;
     ZJThreadDriver *driver;
     ZJMutex videoMutex;
+    int outputWidth,outputHeight;
+    iOS_VideoWindow *videoDevice;
 };
 #endif /* VideoRender_hpp */

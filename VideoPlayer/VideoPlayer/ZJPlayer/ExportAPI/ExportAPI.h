@@ -27,6 +27,6 @@
 @end
 @interface ExportAPI : NSObject
 +(instancetype)sharedInstance;
--(void)openMedia:(NSString*)path width:(NSInteger)width height:(NSInteger)height ;
+-(void)openMedia:(NSString*)path width:(NSInteger)width height:(NSInteger)height window:(void*)window;
 -(void)play;
 @end
