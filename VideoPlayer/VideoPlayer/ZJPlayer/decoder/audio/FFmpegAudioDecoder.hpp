@@ -30,11 +30,19 @@ public:
     FFmpegAudioDecoder();
     ~FFmpegAudioDecoder();
     int openDecoder(MediaContext* ctx);
+    void closeDecoder();
+    void flushDecoder();
+    ZJ_U32 setInputPacket(AVPacket* inputPkt);
+    ZJ_U32 getOutputFrame(AudioFrame* outputFrame,bool rawFFPCMBuf = false);
 private:
     
 private:
     AVCodecContext *codecCtx;
     AVCodecParameters *codecParam;
     AVFrame         *audio_frame;
+    bool               m_PlanarPCM;
+    double             m_TimeBase;
+    AudioFrameBuffer   m_AudioFrameBuf;
+    ZJ_U32             m_nMaxPCMBufSize;
 };
 #endif /* FFmpegAudioDecoder_hpp */

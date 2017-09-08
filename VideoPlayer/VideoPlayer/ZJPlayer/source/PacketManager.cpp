@@ -72,12 +72,12 @@ void PacketManager::clear()
 
 bool PacketManager::PacketQueueIsFull() const
 {
-    return (videoQueue->isFull() );
+    return (videoQueue->isFull() || audioQueue->isFull());
 }
 
 bool PacketManager::PacketQueueIsEmpty() const
 {
-    return (videoQueue->isEmpty() );
+    return (videoQueue->isEmpty() && audioQueue->isEmpty());
 }
 
 int PacketManager::PushEmptyDataPacket(AVPacket *pkt)

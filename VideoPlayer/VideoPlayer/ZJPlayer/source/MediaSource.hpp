@@ -48,6 +48,7 @@ private:
     ZJ_U32 getVideoPacket(AVPacket** pkt);
     ZJ_U32 getAudioPacket(AVPacket** pkt);
     
+    
 private:
     FFmpegReader    *reader;
     ZJThreadDriver  *driver;

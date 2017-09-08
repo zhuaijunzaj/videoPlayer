@@ -13,12 +13,16 @@ MediaControl::MediaControl():status(MediaCtrlStatus_NoAct),hasAudio(false),hasVi
     mediaSource = new MediaSource();
     videoDecoder = new VideoDecoder();
     videoRender = new VideoRender();
+    audioDecoder = new  AudioDecoder();
+    audioRender = new AudioRender();
 }
 MediaControl::~MediaControl()
 {
     if (mediaSource) delete mediaSource;
     if (videoRender) delete videoRender;
     if (videoDecoder) delete videoDecoder;
+    if (audioDecoder) delete audioDecoder;
+    if (audioRender) delete audioRender;
 }
 
 int MediaControl::openMedia(void* window,const char* path,int width,int height)
@@ -51,9 +55,23 @@ int MediaControl::openMedia(void* window,const char* path,int width,int height)
             hasVideo =false;
         }
         if (ctx->hasAudio){
-            
+            SourceMediaPort *port = mediaSource->getVideoSourcePort();
+            ret = audioDecoder->openDecoder(ctx, port);
+            if (ret == 0){
+                // open audio render
+                ret = audioRender->OpenDevice(ctx, port,audioDecoder);
+                if (ret != 0){
+                    audioDecoder->closeDecoder();
+                    audioRender->closeDevice();
+                    return -1;
+                }else{
+                    hasAudio = true;
+                }
+            }else{
+                audioDecoder->closeDecoder();
+            }
         }else{
-            
+            hasAudio = false;
         }
         
     }
@@ -67,6 +85,7 @@ void MediaControl::play(ZJ_U32 startPos)
         
     }
     if (hasVideo && videoRender) videoRender->Run();
+    if (hasAudio && audioRender) audioRender->Run();
     status =  MediaCtrlStatus_Play;
 }
 

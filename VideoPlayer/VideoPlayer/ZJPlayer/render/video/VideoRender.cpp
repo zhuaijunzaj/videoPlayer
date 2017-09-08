@@ -86,7 +86,7 @@ void VideoRender::DoRunning()
     if (nret == Video_Render_Err_None){
         if (frameYUV){
             videoDevice->DrawFrame(frameYUV);
-            av_usleep(20);
+            av_usleep(20000);
         }
     }
 }

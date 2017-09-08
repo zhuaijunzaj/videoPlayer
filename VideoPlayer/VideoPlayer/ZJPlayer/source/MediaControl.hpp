@@ -13,7 +13,8 @@
 #include "VideoDecoder.hpp"
 #include "MediaSource.hpp"
 #include "VideoRender.hpp"
-
+#include "AudioDecoder.hpp"
+#include "AudioRender.hpp"
 typedef enum
 {
     MediaCtrlStatus_Play,
@@ -37,5 +38,9 @@ private:
     MediaSource *mediaSource;
     VideoDecoder *videoDecoder;
     VideoRender *videoRender;
+    
+    //audio
+    AudioDecoder *audioDecoder;
+    AudioRender  *audioRender;
 };
 #endif /* MediaControl_hpp */

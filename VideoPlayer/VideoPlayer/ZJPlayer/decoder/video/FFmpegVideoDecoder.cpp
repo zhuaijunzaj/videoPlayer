@@ -21,7 +21,7 @@ int FFmpegVideoDecoder::openDecoder(MediaContext *mediaCtx)
     if (mediaCtx == NULL) return -1;
     codecCtx = mediaCtx->pVideoCodecCtx;
     codecParam = mediaCtx->pVideoDecParam;
-//    codecCtx->get_format = FFmpegVideoDecoder::getDecoderFormat;
+    codecCtx->get_format = FFmpegVideoDecoder::getDecoderFormat;
     AVStream *stream = mediaCtx->pFormatCtx->streams[mediaCtx->nVideoIndex];
     timeBase = av_q2d(stream->time_base);
     AVCodec *pcodec = avcodec_find_decoder(codecCtx->codec_id);

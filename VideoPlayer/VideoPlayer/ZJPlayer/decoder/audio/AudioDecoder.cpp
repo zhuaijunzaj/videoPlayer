@@ -9,6 +9,7 @@
 #include "AudioDecoder.hpp"
 #include "FFmpegAudioDecoder.hpp"
 
+
 AudioDecoder::AudioDecoder():audioDecoder(NULL)
 {
     audioDecoder = new FFmpegAudioDecoder();
@@ -28,5 +29,38 @@ int AudioDecoder::openDecoder(MediaContext *ctx, SourceMediaPort *Port)
 
 void AudioDecoder::closeDecoder()
 {
-    
+    ZJAutolock lock(&mutex);
+    if (sourcePacket){
+        mediaPort->returnAudioEmptyPacket(sourcePacket);
+        sourcePacket = NULL;
+    }
+    audioDecoder->closeDecoder();
+}
+void AudioDecoder::flush()
+{
+    ZJAutolock lock(&mutex);
+    if (sourcePacket){
+        mediaPort->returnAudioEmptyPacket(sourcePacket);
+        sourcePacket = NULL;
+    }
+    audioDecoder->flushDecoder();
+}
+ZJ_U32 AudioDecoder::getAudioFrame(AudioFrame *pFrame,bool rawFFPCMBuf)
+{
+    ZJAutolock lock(&mutex);
+    ZJ_U32 ret = audioDecoder->getOutputFrame(pFrame,rawFFPCMBuf);
+    if (ret != Audio_Dec_Err_None && pFrame){
+        if (sourcePacket == NULL){
+            ret = mediaPort->getAudioDataPacket(&sourcePacket);
+        }
+        if (ret == Source_Err_None && sourcePacket){
+            ret = audioDecoder->setInputPacket(sourcePacket);
+            if (ret != Audio_Dec_Err_KeepPkt){
+                mediaPort->returnAudioEmptyPacket(sourcePacket);
+                sourcePacket = NULL;
+            }
+            ret = audioDecoder->getOutputFrame(pFrame,rawFFPCMBuf);
+        }
+    }
+    return ret;
 }
